@@ -1,5 +1,5 @@
-const commencer = document.getElementById("start")
-const recommencer = document.getElementById("restart")
+const commencer = document.querySelector(".start")
+const recommencer = document.querySelector(".restart")
 const grille = document.querySelector(".grille")
 const main = document.querySelector(".main")
 const meilleur = document.querySelector(".meilleur")
@@ -10,12 +10,13 @@ let tableauCalculePositions = []
 const joueur1 = "rouge";
 const joueur2 = "jaune";
 let aToiDeJouer = joueur1;
-meilleur.remove()
+
 commencer.addEventListener("click", launchTheGame)
 
-
 function launchTheGame() {
-    main.append(grille)
+    meilleur.classList.add("hidden")
+    grille.classList.remove("hidden")
+    commencer.classList.add("hidden")
     for(let c = 0; c < colonne; c++) {
         let col = [];
         for(let l = 0; l < ligne; l++) {  
@@ -28,7 +29,7 @@ function launchTheGame() {
         }
         tableauCalculePositions.push(col)
     }
-    commencer.remove()
+    commencer.classList.add("hidden")
 }
 
 function afficherJeton() {
@@ -37,6 +38,7 @@ function afficherJeton() {
     let c = parseInt(leChangementCMnt[1])
     let position = document.getElementById(l.toString() + '-' + c.toString())
     if(finDeJeux) {
+        finDeJeux = false;
         return
     }
     if(aToiDeJouer == joueur1) {   
@@ -73,7 +75,6 @@ function afficherJeton() {
 
 
 function finDePartie() {
-
     for(let l = 0; l < 3; l++) {
         for(let c = 0; c <= colonne; c++) {
             if(tableauCalculePositions[l][c] !== '-') {
@@ -85,7 +86,6 @@ function finDePartie() {
                 }
             }
         }
-    
     }
     for(let l = 0; l < ligne - 1; l++) {
         for(let c = 0; c < colonne - 1; c++) {
@@ -101,7 +101,6 @@ function finDePartie() {
     }
     for(let l = 5; l >= 3; l--) {
         for(let c = 0; c < 4; c++) {
-            console.log(l, c)
             if(tableauCalculePositions[l][c] != '-') {
                 if(tableauCalculePositions[l][c] === tableauCalculePositions[l-1][c+1] &&
                     tableauCalculePositions[l-1][c+1] === tableauCalculePositions[l-2][c+2] &&
@@ -114,7 +113,6 @@ function finDePartie() {
     }
     for(let l = 5; l >=  3; l--) {
         for(let c = 6; c >= 3; c--) {
-            console.log(l, c)
             if(tableauCalculePositions[l][c] != '-') {
                 if(tableauCalculePositions[l][c] === tableauCalculePositions[l-1][c-1] &&
                     tableauCalculePositions[l-1][c-1] === tableauCalculePositions[l-2][c-2] &&
@@ -127,15 +125,27 @@ function finDePartie() {
     }
 }
 
+
+
 function gagnant(l, c) {
+    const joueur12 = "joueur 1 est le meilleur"
+    const joueur22 = "joueur 2 est le meilleur"
+    let p = document.querySelector(".texte-recommencer")
+    grille.classList.add("hidden")
+        meilleur.classList.remove("hidden")
+        while (grille.firstChild) {
+            grille.removeChild(grille.firstChild);
+        }
     if(tableauCalculePositions[l][c] === "rouge") {
-        console.log('GAGNANT')
-         grille.remove()
-         main.append(meilleur)
-         recommencer.addEventListener("click", launchTheGame)
+        grille.classList.add("hidden")
+        meilleur.classList.remove("hidden")
+        p.innerText = joueur12
     } else {
-        console.log("jaune est le meilleur")
-        
+        grille.classList.add("hidden")
+        meilleur.classList.remove("hidden")
+        p.innerText = joueur22
     }
+    tableauCalculePositions = []
+    recommencer.addEventListener("click", launchTheGame)
     finDeJeux = true;
 }

@@ -1,16 +1,24 @@
+@font-face {
+    font-family: "brice";
+    src: local("brice"), url(./Brice/Brice-Black.otf) format("opentype");
+}
+
 * {
+    font-family: "brice";
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    
 }
 
 body {
     background-color: #FFD380;
 }
 
-.grille.hidden {
+html body .hidden {
     display: none;
 }
+
 header {
     display: flex;
     justify-content: space-around;
@@ -20,15 +28,13 @@ header {
     margin-top: 2rem;
 }
 
-header p {
-    font-size: 50px;
-    font-family: Brice;
-font-style: normal;
+p {
+    font-size: 35px;
+    font-style: normal;
 }
 
 .joueur1 {
-display: flex;
-
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 230px;
@@ -52,7 +58,6 @@ display: flex;
 
 .joueur2 {
     display: flex;
-
     justify-content: center;
     align-items: center;
     width: 230px;
@@ -108,13 +113,32 @@ display: flex;
     background-color:#EDB241;
 }
 
-#start {
+.start {
     border-radius: 10px;
     background-color: #ee54ab5e;
     width: 200px;
     height: 50px;
 }
 
-.gagnant {
+.meilleur {
+    width: 400px;
+    height: 200px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
 
+
+.restart {
+    border-radius: 10px;
+    background-color: #ee54ab5e;
+    width: 200px;
+    height: 50px;
 }
