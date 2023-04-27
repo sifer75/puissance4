@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #FFD380;
+}
+
+.grille.hidden {
+    display: none;
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+header p {
+    font-size: 50px;
+    font-family: Brice;
+font-style: normal;
+}
+
+.joueur1 {
+display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 148px;
+    background: #E7643D;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+.joueur12 {
+    display: flex;
+    position: absolute;
+    width: 212px;
+    height: 130px;
+    border: 2px solid #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.joueur2 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 148px;
+    background: #EDB241;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    
+}
+
+.joueur22 {
+    display: flex;
+    position: absolute;
+    width: 212px;
+    height: 130px;
+    border: 2px solid #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.grille {
+    display: flex;
+	width: 490px;
+	flex-wrap: wrap;
+    gap: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.cercle {
+    color: rgb(39, 185, 97);
+	width: 50px;
+    height: 50px;
+    background-color: rgb(220, 220, 220);
+	border: 1px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.pieceDuJoueur1 {
+    background-color:#E7643D;
+}
+
+.pieceDuJoueur2 {
+    background-color:#EDB241;
+}
+
+#start {
+    border-radius: 10px;
+    background-color: #ee54ab5e;
+    width: 200px;
+    height: 50px;
+}
+
+.gagnant {
+
+}
